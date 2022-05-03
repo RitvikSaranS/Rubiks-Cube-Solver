@@ -10,7 +10,7 @@ class RubiksCube{
     conformation[3] => green
     conformation[4] => blue
     conformation[5] => yellow
-    */
+*/
     public void enterScramble(){
         for(int i = 0; i < faceColors.length; i++){
             if(i == 0) System.out.println("Enter the colors of " + faceColors[i] + " centered face keeping red at bottom : ");
@@ -25,7 +25,7 @@ class RubiksCube{
             }
         }
     }
-    public void printScramble(){
+    public void printCube(){
         for(int i = 0; i < faceColors.length; i++){
             System.out.println("\n" + faceColors[i] + " centered face" + "\n");
             System.out.println("- - - - -");
@@ -39,11 +39,69 @@ class RubiksCube{
             }
         }
     }
+    public void turnAlgorithm(String algorithm){
+        for(int i = 0; i < algorithm.length(); i++){
+            switch(algorithm.charAt(i)){
+                case 'R' : {
+                    char [] arr = new char[3];
+                    for(int j = 0; j < 3; j++){
+                        arr[j] = conformation[1][j][2];
+                    }
+                    for(int j = 0; j < 3; j++){
+                        conformation[1][j][2] = conformation[5][j][2];
+                    }
+                    for(int j = 0, l = 2; j < 3; j++, l--){
+                        conformation[5][j][2] = conformation[2][l][0];
+                    }
+                    for(int j = 0, l = 2; j < 3; j++, l--){
+                        conformation[2][l][0] = conformation[0][j][2];
+                    }
+                    for(int j = 0; j < 3; j++){
+                        conformation[0][j][2] = arr[j];
+                    }
+                    break;
+                }
+                case 'L' : {
+                    break;
+                }
+                case 'D' : {
+                    break;
+                }
+                case 'U' : {
+                    break;
+                }
+                case 'F' : {
+                    break;
+                }
+                case 'M' : {
+                    break;
+                }
+                case 'r' : {
+                    break;
+                }
+                case 'l' : {
+                    break;
+                }
+                case 'd' : {
+                    break;
+                }
+                case 'u' : {
+                    break;
+                }
+                case 'f' : {
+                    break;
+                }
+                case 'b' : {
+                    break;
+                }
+            }
+        }
+    }
 }
 public class Cube{
     public static void main(String[] args) {
         RubiksCube r = new RubiksCube();
         r.enterScramble();
-        r.printScramble();
+        r.printCube();
     }
 }
